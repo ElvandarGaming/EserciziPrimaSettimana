@@ -3,19 +3,25 @@ package epicode;
 import java.util.Arrays;
 import java.util.Scanner;
 
+
 public class EsLezione3 {
 
 	public static void main(String[] args) {
 		//int N =30;
-
+	
 		Scanner console = new Scanner(System.in);
 		System.out.println("Inserisci un numero bastardo, che ti calcolo il fattoriale in zero due");
 		int N = console.nextInt();
 		
 		console.close();
-
 		
-		System.out.println("il fattoriale di "+ N + " è " + fattoriale(N));
+		if (fattoriale(N) == -1) {
+			System.out.println("Factorial of "+ N + " is too big for this method");
+		}
+		else {
+			System.out.println("il fattoriale di "+ N + " è " + fattoriale(N));
+		}
+		
 		System.out.println(fibonacci(N));
 		System.out.println(fizzbuzz(N));
 	}
@@ -39,7 +45,7 @@ public class EsLezione3 {
 			return fibonacci = "ma sei scemo?";
 		}
 		if (a>92) {
-			return fibonacci = "massa numeri, meno per piacere";
+			return fibonacci = "Inserire un valore minore o uguale a 92";
 		}
 		
 		long g =0;
@@ -67,24 +73,29 @@ public class EsLezione3 {
 		return fibonacci;
 	}
 
-	public static String fizzbuzz(int a) {
-		String[]  pet = new String[a];
-		
+	
+	
+//	public static String[] fizzbuzz(int a) {
+	public static StringBuilder fizzbuzz(int a) {
+//		String[]  pet = new String[a];
+		StringBuilder rat = new StringBuilder("");
 		for(int i = 0, j =1 ; i < a ; i++ , j++) {
-			pet[i]=String.valueOf(j).toString();
-		
-			if(j%3==0) {
-				pet[i] = "fizz";
-			}
-			if(j%5==0) {
-				pet[i] = "buzz";
-			}
 			if(j % 3 == 0 && j % 5 == 0) {
-				pet[i] = "fizzbuzz";
+				rat = rat.append("fizzbuzz ");
 			}
+			else if(j%3 == 0) {
+				rat = rat.append("buzz ");
+			}
+			else if(j % 5 == 0) {
+				rat = rat.append("fizz ");
+			}
+			else {
+				rat=rat.append(String.valueOf(j).toString() + " ");
+			}
+			
 		}
 		
-		String rat = Arrays.toString(pet);
+		//String rat = Arrays.toString(pet);
 		
 		return rat;
 	}
