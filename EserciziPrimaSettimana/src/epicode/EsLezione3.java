@@ -10,7 +10,7 @@ public class EsLezione3 {
 		//int N =30;
 	
 		Scanner console = new Scanner(System.in);
-		System.out.println("Inserisci un numero bastardo, che ti calcolo il fattoriale in zero due");
+		System.out.println("Inserisci un numero, che ti calcolo il fattoriale in zero due");
 		int N = console.nextInt();
 		
 		console.close();
@@ -23,7 +23,8 @@ public class EsLezione3 {
 		}
 		
 		System.out.println(fibonacci(N));
-		System.out.println(fizzbuzz(N));
+		System.out.println(fizzBuzz(N));
+		fizzBuzzOriginal(N);
 	}
 
 	public static long fattoriale(int a) {
@@ -73,10 +74,46 @@ public class EsLezione3 {
 		return fibonacci;
 	}
 
+	public static void fizzBuzzOriginal (int a) {
+		for(int i = 1; i<a;i++) {
+			if (i % 3 == 0  && i % 5 == 0 ) {
+				System.out.println("fizzbuzz");
+			}
+			else if(i % 3 == 0){
+				System.out.println("fizz");
+			}
+			else if(i % 5 == 0){
+				System.out.println("buzz");
+			}
+			else {
+				System.out.println(i);
+			}
+		}
+	}
 	
+	public static String fizzBuzz(int a) {
+		String[]  pet = new String[a];
+
+		for(int i = 0, j =1 ; i < a ; i++ , j++) {
+			pet[i]=String.valueOf(j);
+
+			if(j%3==0) {
+				pet[i] = "fizz";
+			}
+			if(j%5==0) {
+				pet[i] = "buzz";
+			}
+			if(j % 3 == 0 && j % 5 == 0) {
+				pet[i] = "fizzbuzz";
+			}
+		}
+
+		String rat = Arrays.toString(pet);
+
+		return rat;
+	}
 	
-//	public static String[] fizzbuzz(int a) {
-	public static StringBuilder fizzbuzz(int a) {
+	public static StringBuilder fizzbBuzzBo(int a) {
 //		String[]  pet = new String[a];
 		StringBuilder rat = new StringBuilder("");
 		for(int i = 0, j =1 ; i < a ; i++ , j++) {
