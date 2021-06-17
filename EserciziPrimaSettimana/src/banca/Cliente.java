@@ -1,4 +1,4 @@
-package it.epicode.Banca;
+package banca;
 
 public class Cliente {
 
