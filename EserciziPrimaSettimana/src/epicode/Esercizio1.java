@@ -1,7 +1,7 @@
-package epicode.src.it.helloWorld;
+package epicode;
 
 import java.util.Arrays;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class Esercizio1 {
 
